@@ -17,9 +17,6 @@ class MemberV1(
     @Column
     val birthDate: LocalDate,
 
-    @Transient
-    var age: Int = ageCalculator(birthDate),
-
     @Column
     @Enumerated(EnumType.STRING)
     var gender: Gender

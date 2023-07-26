@@ -28,6 +28,10 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
+noArg {
+    annotation("jakarta.persistence.Entity")
+}
+
 allOpen {
     annotation("jakarta.persistence.Entity")
     annotation("jakarta.persistence.Embeddable")
