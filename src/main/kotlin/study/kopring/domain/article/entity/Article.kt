@@ -1,6 +1,7 @@
 package study.kopring.domain.article.entity
 
 import jakarta.persistence.*
+import study.kopring.domain.article.dto.ArticlePatchDto
 import study.kopring.domain.user.entity.User
 
 @Entity
@@ -25,4 +26,9 @@ class Article(
     @JoinColumn(nullable = false)
     var user: User = user
         protected set
+
+    fun update(articlePatch: ArticlePatchDto) {
+        title = articlePatch.title
+        content = articlePatch.content
+    }
 }
