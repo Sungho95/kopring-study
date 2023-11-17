@@ -25,7 +25,7 @@ class User(
 
     @Column
     @Enumerated(EnumType.STRING)
-    var gender = Gender.SECRET
+    var gender = gender
         protected set
 
     @OneToMany
