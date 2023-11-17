@@ -12,11 +12,9 @@ abstract class BaseEntity {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    lateinit var createdAt: LocalDateTime
-        protected set
+    val createdAt: LocalDateTime = LocalDateTime.now()
 
     @LastModifiedBy
     @Column(nullable = false)
-    lateinit var modifiedAt: LocalDateTime
-        protected set
+    var modifiedAt: LocalDateTime = LocalDateTime.now()
 }
