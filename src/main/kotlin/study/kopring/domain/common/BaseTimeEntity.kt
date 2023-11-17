@@ -8,13 +8,24 @@ import java.time.LocalDateTime
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener::class)
-abstract class BaseEntity {
+abstract class BaseTimeEntity {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    val createdAt: LocalDateTime = LocalDateTime.now()
+    lateinit var createdAt: LocalDateTime
 
     @LastModifiedBy
     @Column(nullable = false)
-    var modifiedAt: LocalDateTime = LocalDateTime.now()
+    lateinit var modifiedAt: LocalDateTime
+
+    @PrePersist
+    fun prePersist() {
+        createdAt = LocalDateTime.now()
+        modifiedAt = LocalDateTime.now()
+    }
+
+    @PreUpdate
+    fun preUpdate() {
+        modifiedAt = LocalDateTime.now()
+    }
 }

@@ -16,3 +16,8 @@ data class UserPostDto(
         )
     }
 }
+
+data class UserPatchDto(
+    val name: String,
+    val gender: String
+)

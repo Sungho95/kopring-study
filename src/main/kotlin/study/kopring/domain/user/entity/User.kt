@@ -2,7 +2,7 @@ package study.kopring.domain.user.entity
 
 import jakarta.persistence.*
 import study.kopring.domain.article.entity.Article
-import study.kopring.domain.common.BaseEntity
+import study.kopring.domain.common.BaseTimeEntity
 import study.kopring.domain.user.enums.Gender
 
 @Entity
@@ -10,7 +10,7 @@ class User(
     email: String,
     name: String,
     gender: Gender
-) : BaseEntity() {
+) : BaseTimeEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null
@@ -34,5 +34,10 @@ class User(
 
     fun createArticle(article: Article) {
         mutableArticles.add(article)
+    }
+
+    fun update(name: String, gender: Gender) {
+        this.name = name
+        this.gender = gender
     }
 }
