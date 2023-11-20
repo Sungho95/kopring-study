@@ -6,7 +6,7 @@ import study.kopring.domain.user.enums.Gender
 data class UserPostDto(
     val email: String,
     val name: String,
-    val gender: String = "SECRET"
+    val gender: String
 ) {
     fun toEntity(): User {
         return User(

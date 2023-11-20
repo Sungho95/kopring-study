@@ -17,7 +17,8 @@ abstract class BaseTimeEntity {
 
 //    @CreatedBy
 //    @Column(nullable = false, updatable = false)
-//    lateinit var createdBy: String
+//    var createdBy: Long = 0L
+//        protected set
 
     @LastModifiedDate
     @Column(nullable = false)
@@ -26,5 +27,6 @@ abstract class BaseTimeEntity {
 
 //    @LastModifiedBy
 //    @Column(nullable = false)
-//    lateinit var modifiedBy: Stringe
+//    var lastModifiedBy: Long = 0L
+//        protected set
 }

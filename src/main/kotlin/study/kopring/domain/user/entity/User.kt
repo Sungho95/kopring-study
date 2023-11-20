@@ -28,7 +28,7 @@ class User(
     var gender = gender
         protected set
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "user")
     protected val mutableArticles: MutableList<Article> = mutableListOf()
     val articles: List<Article> get() = mutableArticles.toList()
 
