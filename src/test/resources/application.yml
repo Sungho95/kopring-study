@@ -7,7 +7,6 @@ spring:
     hikari:
       connection-timeout: 3000
   jpa:
-#    open-in-view: false
     hibernate:
       ddl-auto: create
     properties:

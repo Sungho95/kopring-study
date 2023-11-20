@@ -23,7 +23,7 @@ class User(
     var name = name
         protected set
 
-    @Column
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     var gender = gender
         protected set

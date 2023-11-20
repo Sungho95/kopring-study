@@ -2,7 +2,7 @@ package study.kopring.domain.common
 
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
-import org.springframework.data.annotation.LastModifiedBy
+import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.time.LocalDateTime
 
@@ -12,20 +12,19 @@ abstract class BaseTimeEntity {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    lateinit var createdAt: LocalDateTime
+    var createdAt: LocalDateTime = LocalDateTime.MIN
+        protected set
 
-    @LastModifiedBy
+//    @CreatedBy
+//    @Column(nullable = false, updatable = false)
+//    lateinit var createdBy: String
+
+    @LastModifiedDate
     @Column(nullable = false)
-    lateinit var modifiedAt: LocalDateTime
+    var lastModifiedAt: LocalDateTime = LocalDateTime.MIN
+        protected set
 
-    @PrePersist
-    fun prePersist() {
-        createdAt = LocalDateTime.now()
-        modifiedAt = LocalDateTime.now()
-    }
-
-    @PreUpdate
-    fun preUpdate() {
-        modifiedAt = LocalDateTime.now()
-    }
+//    @LastModifiedBy
+//    @Column(nullable = false)
+//    lateinit var modifiedBy: Stringe
 }

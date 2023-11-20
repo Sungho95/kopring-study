@@ -9,7 +9,7 @@ data class UserResponseDto(
     val name: String,
     val gender: String,
     val createdAt: LocalDateTime,
-    val modifiedAt: LocalDateTime
+    val lastModifiedAt: LocalDateTime
 ) {
     companion object {
         fun from(user: User): UserResponseDto {
@@ -19,7 +19,7 @@ data class UserResponseDto(
                 name = user.name,
                 gender = user.gender.value,
                 createdAt = user.createdAt,
-                modifiedAt = user.modifiedAt
+                lastModifiedAt = user.lastModifiedAt
             )
         }
     }
